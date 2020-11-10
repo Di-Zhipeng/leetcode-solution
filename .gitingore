@@ -1,0 +1,10 @@
+.vscode
+cmake-build-debug
+.DS_Store
+.idea
+build
+*.out
+*.exe
+*.o
+*.a
+*.s
