@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-11-06 08:54:43
  * @LastEditors: Di-Zhipeng
- * @LastEditTime: 2020-11-10 16:35:59
+ * @LastEditTime: 2020-11-11 08:17:58
  * @Description: ZJU@CS - Tenderness
  * @FilePath: /LeetCode/1.两数之和.cpp
  */
@@ -12,29 +12,26 @@
  */
 
 // @lc code=start
-#include <vector>
-#include <iostream>
 #include <algorithm>
+#include <unordered_map>
+#include <vector>
 using namespace std;
 class Solution
 {
-public:
+  public:
     vector<int> twoSum(vector<int> &nums, int target)
     {
-        vector<int> res(2);
+        unordered_map<int, int> ht;
         for (int i = 0; i < nums.size(); i++)
         {
-            for (int j = 0; j < nums.size(); j++)
+            auto it = ht.find(target - nums[i]);
+            if (it != ht.end())
             {
-                if ((nums[i] + nums[j] == target) && (i != j))
-                {
-                    res[0] = i;
-                    res[1] = j;
-                }
+                return {it->second, i};
             }
+            ht[nums[i]] = i;
         }
-        sort(res.begin(), res.end());
-        return res;
+        return {};
     }
 };
 // @lc code=end

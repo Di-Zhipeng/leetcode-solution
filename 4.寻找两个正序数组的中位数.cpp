@@ -16,7 +16,7 @@
 using namespace std;
 class Solution
 {
-public:
+  public:
     double midVal(vector<int> nums)
     {
         int size = nums.size();
